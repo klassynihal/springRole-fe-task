@@ -5,8 +5,8 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-        <span>icon</span>
-        <h4>heading</h4>
+        <i onClick={this.props.iconFn} className={this.props.icon}></i>
+        <span>Data Peace</span>
       </header>
     );
   }

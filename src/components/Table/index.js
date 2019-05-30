@@ -9,6 +9,17 @@ const Table = props => {
   return (
     <section className='main-table'>
       <table className="u-full-width">
+        <colgroup>
+          <col className="first_name" />
+          <col className="last_name" />
+          <col className="company_name" />
+          <col className="city" />
+          <col className="state" />
+          <col className="zip" />
+          <col className="email" />
+          <col className="web" />
+          <col className="age" />
+        </colgroup>
         <thead>
           <tr>
             <th onClick={() => { props.onSort('first_name') }}>First Name <span className={props.setArrow('first_name')}></span></th>
@@ -33,7 +44,7 @@ const Table = props => {
                 <td>{user.state}</td>
                 <td>{user.zip}</td>
                 <td>{user.email}</td>
-                <td>{user.web}</td>
+                <td><a href={user.web} target="_blank">{user.web}</a></td>
                 <td>{user.age}</td>
               </tr>
             )

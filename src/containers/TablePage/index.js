@@ -8,6 +8,7 @@ class TablePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      input: '',
       //for Pagination
       currentPage: 1, //current page no.
       usersPerPage: 5, // Max no of user per page
@@ -25,8 +26,14 @@ class TablePage extends Component {
   }
   // move to display page
   handleDisplay = (id) => {
-    this.props.history.push('/user/id')
+    this.props.history.push(`/user/${id}`)
   }
+  //==============================User Defined Function for Searching==============================
+  handleInput = (e) => {
+    this.setState({ input: e.target.value })
+  }
+
+  filterSearch = (users) => users.filter(obj => obj.first_name.toLowerCase().includes(this.state.input.toLowerCase()));
 
 
   // ================================User Defined Methods For Pagination ======================================
@@ -188,11 +195,11 @@ class TablePage extends Component {
     for (let i = 1; i <= Math.ceil(users.length / usersPerPage); i++) {
       allPages.push(i);
     }
+    //filter Search
+    const serchedUsers = this.filterSearch(users)
 
     //Sorting logic
-
-    const sortedUsers = this.userSort(users)
-    console.log(sortedUsers.slice(0, 20))
+    const sortedUsers = this.userSort(serchedUsers)
 
     // Logic for displaying current users
     const indexOfLastUser = currentPage * usersPerPage;
@@ -205,12 +212,12 @@ class TablePage extends Component {
     return (
       <section className="table-page">
 
-        <Header />
+        <Header icon='fa fa-bars' iconFn={() => { }} />
 
         <section className="table-wrapper">
           <section>
-            <input type='text' placeholder="Search by first name" />
-            <span>11-15 0f 50</span>
+            <input type='text' placeholder="Search by first name" value={this.state.input} onChange={this.handleInput} />
+            <span>{` ${indexOfFirstUser + 1}-${indexOfLastUser} of ${users.length}`}</span>
           </section>
 
           <Table displayData={currentUsersArr} onSort={this.onSort} setArrow={this.setArrow} handleDisplay={this.handleDisplay} />

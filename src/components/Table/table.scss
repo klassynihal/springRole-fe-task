@@ -1,27 +1,54 @@
 .main-table {
   table {
-    border-collapse: collapse;
+    font-size: 13px;
     width: 100%;
+    col.first_name {
+      // width: 8%;
+    }
+    col.last_name {
+      // width: 8%;
+    }
+    col.company_name {
+      // width: 12%;
+    }
+    col.city {
+    }
+    col.state {
+      // width: 5%;
+    }
+    col.zip {
+      // width: 5%;
+    }
+    col.email {
+    }
+    col.web {
+    }
+    col.age {
+    }
 
     th,
     td {
-      border: 1px solid #e1e1e1;
-      padding: 6px 8px;
+      border: 2px solid #4e8bc991;
+      padding: 5px;
+      height: 40px;
     }
     th {
-      background: #aaa;
+      background: #cbcbcb;
       cursor: pointer;
     }
 
     tbody {
       tr:nth-child(even) {
-        background: #ccc;
+        background: #ebeaeb;
       }
       tr {
         border-bottom: 1px solid #eee;
         cursor: pointer;
         &:hover {
-          background: rgb(210, 249, 252);
+          background: #4e8bc93b;
+        }
+        a {
+          color: #4e8bc9;
         }
       }
     }

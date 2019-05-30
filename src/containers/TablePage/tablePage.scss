@@ -14,7 +14,30 @@
     }
   }
   .table-wrapper {
+    padding: 20px;
     width: 90%;
     margin: 0 auto;
+
+    input {
+      height: 38px;
+      padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+      background-color: #fff;
+      border: none;
+      border-bottom: 1px solid #d1d1d1;
+      box-shadow: none;
+      box-sizing: border-box;
+      width: 350px;
+      margin: 20px 20px 20px 0;
+      &:focus {
+        border-bottom: 1px solid #33c3f0;
+        outline: 0;
+      }
+    }
+    ::placeholder {
+      color: #bbb;
+    }
+    span {
+      color: #777;
+    }
   }
 }

@@ -1,0 +1,24 @@
+.detail-wrapper {
+  width: 80%;
+  margin: 20px auto;
+  h3 {
+    margin-left: 5px;
+  }
+  .user-card_grid {
+    display: grid;
+    div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+      padding: 7px 40px 7px 10px;
+      .title {
+        place-self: start;
+        font-size: 18px;
+      }
+      .value {
+        place-self: end;
+        color: #888;
+      }
+    }
+  }
+}
