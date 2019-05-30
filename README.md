@@ -1,68 +1,115 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to launch the app locally?
+* 1 -- Download and install Node(latest stable version) (npm comes along with node).<br/>
+-- [Node](https://nodejs.org/)<br/>
+-- [NPM](https://www.npmjs.com/)
+```
+verify with below command
+>>>node -v
+>>>npm -v
+```
 
-## Available Scripts
+* Make sure you run all your commands inside cloned folder
+* 2 -- Install the npm modules from the package.json
+```
+>>> npm install
+this command installs all the node related packages required to run the app locally in 
+/node_modules folder. You can see this folder inside /ISDB folder after running npm install
+```
+* 3 -- Launch the application using below command:
+```
+>>> npm start
+The application will be running at http://localhost:3001 URL
+```
+![alt text](./app-images/start.png)
 
-In the project directory, you can run:
+* 4 -- No more steps
+```
+Now you don't need to repeat above steps again to run the app rather one time task.
+to close server
+press Ctrl+C/Command+c on terminal.
+to start again 
+>>> npm start
 
-### `npm start`
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Get Started
+* Frontend - React, SCSS
 
-### `npm test`
+### Frontend Part
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+All client related files are in './src'
 
-### `npm run build`
+* './components' -- This folder contians presentational(static/Dumb/Stateless) components with their respectively Stylesheets.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* './containers' -- This folder contians container(dynamic/Smart/Statefull) components. components with their respectively Stylesheets.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+* './App,js' -- entry point and will render root element where app lives.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* package.json -- Contain all the packages for the application
 
-### `npm run eject`
+## Packages Used
+All packages can find in `./package.json`.
+```
+```
+### Frontend Packages
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* `react-router-dom` -- used for routing to render components on routes(from  '/'(home) ->  to '/nav' or -> '/').
+* `node-sass` --  Used for compiling scss or sass to css.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## How to launch the app locally?
+* 1 -- Download and install Node(latest stable version) (npm comes along with node).<br/>
+-- [Node](https://nodejs.org/)<br/>
+-- [NPM](https://www.npmjs.com/)
+```
+verify with below command
+>>>node -v
+>>>npm -v
+```
 
-## Learn More
+* Make sure you run all your commands inside cloned folder
+* 2 -- Install the npm modules from the package.json
+```
+>>> npm install
+this command installs all the node related packages required to run the app locally in 
+/node_modules folder. You can see this folder inside /ISDB folder after running npm install
+```
+* 3 -- Launch the application using below command:
+```
+>>> npm start
+The application will be running at http://localhost:3001 URL
+```
+![alt text](./app-images/start.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* 4 -- No more steps
+```
+Now you don't need to repeat above steps again to run the app rather one time task.
+to close server
+press Ctrl+C/Command+c on terminal.
+to start again 
+>>> npm start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
 
-### Code Splitting
+## How to Contribute?
+* 1 -- Clone or forked this repo
+* 2 -- Now go cloned folder and open a terminal then run `git branch`.
+```
+* => master
+```
+* 3 -- Now, You have to make your branch.<br>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```
+git checkout -b <branch_name>
+// example => git checkout -b PKS-API_EndPoints
+```
+* 5 -- Now make the changes in your branch by running `git push origin your_branch_name`.
+* 6 -- Then make a PR from their. If you don't know to make a PR the go to this [link](https://help.github.com/articles/creating-a-pull-request/).
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## How to get connected with the main repo?
+Before start working on you forked repo, make sure to sync it with parent repo.
+* 1 -- Go to the master branch using `git checkout master` and run `git pull origin master`.
+* 2 -- Came back to your branch using `git checkout your_branch_name` and the run again `git pull origin master`.
+* 3 -- In case you can't checkout to the **master** then that means you have something that is not committed. If it's necessary then first commit it then checkout **master** otherwise run `git stash -u` then checkout to the **master**.
