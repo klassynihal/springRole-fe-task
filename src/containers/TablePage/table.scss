@@ -1,0 +1,16 @@
+.table-page {
+  button:disabled {
+    color: #333;
+    border-color: #ccc;
+    // background: red;
+    opacity: 0.5;
+    cursor: not-allowed;
+    outline: 0;
+
+    &:hover {
+      color: #333;
+      border-color: #ccc;
+      outline: 0;
+    }
+  }
+}
