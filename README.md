@@ -2,34 +2,34 @@
 * 1 -- Download and install Node(latest stable version) (npm comes along with node).<br/>
 -- [Node](https://nodejs.org/)<br/>
 -- [NPM](https://www.npmjs.com/)
-```
 verify with below command
->>>node -v
->>>npm -v
+
+```
+node -v
+npm -v
 ```
 
 * Make sure you run all your commands inside cloned folder
 * 2 -- Install the npm modules from the package.json
 ```
->>> npm install
+npm install
+```
 this command installs all the node related packages required to run the app locally in 
 /node_modules folder. You can see this folder inside /ISDB folder after running npm install
-```
+
 * 3 -- Launch the application using below command:
 ```
->>> npm start
-The application will be running at http://localhost:3001 URL
+npm start
 ```
-![alt text](./app-images/start.png)
+The application will be running at http://localhost:3001 URL
 
 * 4 -- No more steps
-```
 Now you don't need to repeat above steps again to run the app rather one time task.
 to close server
 press Ctrl+C/Command+c on terminal.
 to start again 
->>> npm start
-
+```
+ npm start
 ```
 
 
@@ -50,48 +50,12 @@ All client related files are in './src'
 
 ## Packages Used
 All packages can find in `./package.json`.
-```
-```
+
 ### Frontend Packages
 
 * `react-router-dom` -- used for routing to render components on routes(from  '/'(home) ->  to '/nav' or -> '/').
 * `node-sass` --  Used for compiling scss or sass to css.
 
-
-
-## How to launch the app locally?
-* 1 -- Download and install Node(latest stable version) (npm comes along with node).<br/>
--- [Node](https://nodejs.org/)<br/>
--- [NPM](https://www.npmjs.com/)
-```
-verify with below command
->>>node -v
->>>npm -v
-```
-
-* Make sure you run all your commands inside cloned folder
-* 2 -- Install the npm modules from the package.json
-```
->>> npm install
-this command installs all the node related packages required to run the app locally in 
-/node_modules folder. You can see this folder inside /ISDB folder after running npm install
-```
-* 3 -- Launch the application using below command:
-```
->>> npm start
-The application will be running at http://localhost:3001 URL
-```
-![alt text](./app-images/start.png)
-
-* 4 -- No more steps
-```
-Now you don't need to repeat above steps again to run the app rather one time task.
-to close server
-press Ctrl+C/Command+c on terminal.
-to start again 
->>> npm start
-
-```
 
 ## How to Contribute?
 * 1 -- Clone or forked this repo
