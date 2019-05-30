@@ -2,7 +2,6 @@ import React from 'react';
 import './usercard.scss'
 const UserCard = props => {
   const { user } = props
-  console.log(user);
   return (
     < section className="detail-wrapper">
       <h3>{user.first_name + ' ' + user.last_name}</h3>

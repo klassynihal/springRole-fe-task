@@ -179,8 +179,6 @@ class TablePage extends Component {
       className += this.state.sort.direction === 'asc' ? ' asc' : ' desc';
     }
 
-    console.log(className);
-
     return className;
   };
 
@@ -191,10 +189,6 @@ class TablePage extends Component {
     const { currentPage, usersPerPage, upperPageBound, lowerPageBound, isPrevBtnActive, isNextBtnActive } = this.state;
     const { users } = this.props;
 
-    const allPages = [];
-    for (let i = 1; i <= Math.ceil(users.length / usersPerPage); i++) {
-      allPages.push(i);
-    }
     //filter Search
     const serchedUsers = this.filterSearch(users)
 
@@ -202,6 +196,10 @@ class TablePage extends Component {
     const sortedUsers = this.userSort(serchedUsers)
 
     // Logic for displaying current users
+    const allPages = [];
+    for (let i = 1; i <= Math.ceil(sortedUsers.length / usersPerPage); i++) {
+      allPages.push(i);
+    }
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsersArr = sortedUsers.slice(indexOfFirstUser, indexOfLastUser);
