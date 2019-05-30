@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
-import Header from '../../components/Header';
-import './table.scss';
-import PaginationBar from '../../components/PaginationBar';
-import Table from '../../components/Table';
+import Header from '../../components/Header/index'
+import PaginationBar from '../../components/PaginationBar/index';
+import Table from '../../components/Table/index';
+import './tablePage.scss';
 
 class TablePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      //for Pagination
       currentPage: 1, //current page no.
       usersPerPage: 5, // Max no of user per page
       upperPageBound: 9,
       lowerPageBound: 0,
       isPrevBtnActive: false,
       isNextBtnActive: true,
-      pageBound: 9
+      pageBound: 9,
+      //for Sorting
+      sort: {
+        column: null,
+        direction: 'desc',
+      }
     }
+  }
+  // move to display page
+  handleDisplay = (id) => {
+    this.props.history.push('/user/id')
   }
 
 
-  // ================================User Defined Methods ======================================
+  // ================================User Defined Methods For Pagination ======================================
 
 
   //handle if pageno is clickked padination row
@@ -109,6 +119,65 @@ class TablePage extends Component {
     })
   }
 
+  //===================================User Defined Methods For Sorting==========================
+
+  onSort = (column) => {
+    const direction = this.state.sort.column ? (this.state.sort.direction === 'asc' ? 'desc' : 'asc') : 'desc';
+    this.setState({
+      sort: {
+        column,
+        direction,
+      }
+    });
+  };
+
+  userSort = (users) => {
+    const { column, direction } = this.state.sort;
+    const sortedData = users.sort((a, b) => {
+      if (typeof a[column] === 'string') {
+        let wordA = a[column].toUpperCase(); // ignore upper and lowercase
+        let wordB = b[column].toUpperCase(); // ignore upper and lowercase
+
+        if (column === 'web') {
+          wordA = wordA.split('.')[1];  // getting Domain Out of URL
+          wordB = wordB.split('.')[1];  // getting Domain Out of URL
+        }
+
+        if (wordA < wordB) {
+          return -1;
+        }
+
+        if (wordA > wordB) {
+          return 1;
+        }
+        // names must be equal
+        return 0;
+      } else {
+        // else it is a nomber acc to input data reciving
+        return a[column] - b[column];
+      }
+    });
+
+    if (direction === 'desc' && column) {
+      sortedData.reverse();
+    }
+
+    return sortedData
+  }
+
+  setArrow = (column) => {
+    let className = 'sort-direction';
+
+    if (this.state.sort.column === column) {
+      className += this.state.sort.direction === 'asc' ? ' asc' : ' desc';
+    }
+
+    console.log(className);
+
+    return className;
+  };
+
+
   // ==================================RENDER FUNCTION===========================================
   render() {
     //calculating Variables
@@ -122,11 +191,13 @@ class TablePage extends Component {
 
     //Sorting logic
 
+    const sortedUsers = this.userSort(users)
+    console.log(sortedUsers.slice(0, 20))
 
     // Logic for displaying current users
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
-    const currentUsersArr = users.slice(indexOfFirstUser, indexOfLastUser);
+    const currentUsersArr = sortedUsers.slice(indexOfFirstUser, indexOfLastUser);
 
 
 
@@ -136,13 +207,13 @@ class TablePage extends Component {
 
         <Header />
 
-        <section className="container">
+        <section className="table-wrapper">
           <section>
             <input type='text' placeholder="Search by first name" />
             <span>11-15 0f 50</span>
           </section>
 
-          <Table displayData={currentUsersArr} />
+          <Table displayData={currentUsersArr} onSort={this.onSort} setArrow={this.setArrow} handleDisplay={this.handleDisplay} />
 
           <PaginationBar
             handlePageClick={this.handlePageClick}

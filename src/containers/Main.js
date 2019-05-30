@@ -28,8 +28,8 @@ class Main extends Component {
     return (
       <section className="main">
         <Switch>
-          <Route exact path='/' render={() => <TablePage users={dataArr} />} />
-          <Route path='/user/:id' render={() => <DetailPage users={dataArr} />} />
+          <Route exact path='/' render={(props) => <TablePage {...props} users={dataArr} />} />
+          <Route path='/user/:id' render={(props) => <DetailPage {...props} users={dataArr} />} />
         </Switch>
       </section>
     );
